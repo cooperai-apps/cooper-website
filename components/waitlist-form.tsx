@@ -82,7 +82,7 @@ export function WaitlistForm({ variant = "default" }: WaitlistFormProps) {
           <CheckCircle className="h-5 w-5 text-green-500" />
         </div>
         <h3 className="mb-1 font-semibold">You're on the list!</h3>
-        <p className="text-muted-foreground text-sm">We'll notify you when we launch.</p>
+        <p className="text-muted-foreground text-sm">We'll get in touch soon.</p>
       </div>
     )
   }
