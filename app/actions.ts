@@ -11,9 +11,21 @@ export async function joinWaitlist(data: {
   organizationType: string
 }) {
   try {
+    // Check if environment variables are set
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error("Missing Supabase credentials:", {
+        hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+        hasKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+      })
+      return {
+        success: false,
+        error: "Configuration error. Please contact support.",
+      }
+    }
+
     const cookieStore = await cookies()
 
-    const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
+    const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
       cookies: {
         getAll() {
           return cookieStore.getAll()
@@ -41,16 +53,21 @@ export async function joinWaitlist(data: {
         }
       }
 
-      console.error("[v0] Waitlist signup error:", error)
+      console.error("Waitlist signup error:", {
+        code: error.code,
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+      })
       return {
         success: false,
-        error: "Failed to join waitlist. Please try again.",
+        error: `Failed to join waitlist: ${error.message}`,
       }
     }
 
     return { success: true }
   } catch (error) {
-    console.error("[v0] Waitlist signup error:", error)
+    console.error("Waitlist signup exception:", error)
     return {
       success: false,
       error: "An unexpected error occurred. Please try again.",
