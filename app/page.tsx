@@ -291,7 +291,7 @@ export default function LandingPage() {
                 <img
                   src="/images/design-mode/image(1).png"
                   alt="Rushil Goel"
-                  className="h-16 w-16 rounded-full object-cover"
+                  className="h-20 w-20 rounded-full object-cover"
                 />
                 <div className="flex-1 text-center md:text-left">
                   <blockquote className="mb-3 text-balance text-lg leading-relaxed">
