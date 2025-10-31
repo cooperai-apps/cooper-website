@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { CooperLogo } from "@/components/cooper-logo"
 
 export default function PrivacyPage() {
   useEffect(() => {
@@ -12,11 +13,7 @@ export default function PrivacyPage() {
       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md transition-all">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <a href="/" className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-[20%] bg-black">
-              <span className="font-sans font-bold text-white leading-none" style={{ fontSize: "140%" }}>
-                C
-              </span>
-            </div>
+            <CooperLogo className="h-7 w-7" />
             <span className="font-semibold text-lg">Cooper AI</span>
           </a>
         </div>
@@ -348,11 +345,7 @@ export default function PrivacyPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
-              <div className="flex h-5 w-5 items-center justify-center rounded-[20%] bg-black">
-                <span className="font-sans font-bold text-white leading-none" style={{ fontSize: "140%" }}>
-                  C
-                </span>
-              </div>
+              <CooperLogo className="h-5 w-5" />
               <span className="font-semibold text-sm">Cooper AI</span>
             </div>
             <p className="text-muted-foreground text-xs">© 2025 Cooper AI</p>
