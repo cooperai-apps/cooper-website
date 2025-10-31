@@ -76,8 +76,6 @@
 
 @theme inline {
   /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
-  --font-sans: var(--font-assistant), ui-sans-serif, system-ui, sans-serif;
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -125,6 +123,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-assistant), ui-sans-serif, system-ui, sans-serif;
   }
 }
 

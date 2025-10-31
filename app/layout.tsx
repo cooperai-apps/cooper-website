@@ -3,7 +3,13 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Assistant } from 'next/font/google'
+import { Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
+import { Assistant, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
+
+// Initialize fonts
+const _geist = V0_Font_Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
 
 const assistant = Assistant({
   subsets: ["latin"],
@@ -11,13 +17,10 @@ const assistant = Assistant({
 })
 
 export const metadata: Metadata = {
-  title: "CooperAI - Your Insurance Copilot",
+  title: "Cooper AI - AI-Powered Insurance Assistant",
   description:
     "Cooper streamlines submissions, automates underwriting, and accelerates policy management for insurance professionals.",
-  generator: 'v0.app',
-  icons: {
-    icon: '/cooper-flower-white.webp',
-  }
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
