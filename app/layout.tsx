@@ -16,12 +16,12 @@ const assistant = Assistant({
 })
 
 export const metadata: Metadata = {
-  title: "Cooper AI - AI-Powered Insurance Assistant",
+  title: "Cooper - AI-Powered Insurance Assistant",
   description:
     "Cooper streamlines submissions, automates underwriting, and accelerates policy management for insurance professionals.",
   generator: 'v0.app',
   icons: {
-    icon: '/cooper-logo.png',
+    icon: '/cooper-flower-white.webp',
   }
 }
 

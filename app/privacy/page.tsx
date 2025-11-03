@@ -14,7 +14,7 @@ export default function PrivacyPage() {
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <a href="/" className="flex items-center gap-2">
             <CooperLogo className="h-7 w-7" />
-            <span className="font-semibold text-lg">Cooper AI</span>
+            <span className="font-semibold text-lg">Cooper</span>
           </a>
         </div>
       </header>
@@ -27,13 +27,13 @@ export default function PrivacyPage() {
           <section>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                Cooper AI, Inc. and its affiliates ("Cooper AI," "we," "us," or "our") provide an AI-powered software
+                Cooper, Inc. and its affiliates ("Cooper," "we," "us," or "our") provide an AI-powered software
                 platform that enables insurance agents, brokers, and carriers to automate and streamline insurance
                 workflows, including document processing, underwriting assistance, policy analysis, and related services
                 (the "Services").
               </p>
               <p>
-                This Privacy Policy describes Cooper AI's privacy practices with respect to the personal information of
+                This Privacy Policy describes Cooper's privacy practices with respect to the personal information of
                 individuals who use the Services on behalf of an insurance agency, brokerage, carrier, or other business
                 to which we may market and provide our Services (each, a "User" or "you(r)"), including the information
                 we collect on our website at askcooper.ai, through our platform, at events, in person, from third
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                 </li>
                 <li>
                   <strong>Job applicant data</strong>, such as your education and employment history, as well as any
-                  other information you choose to include in your resume and/or application for employment at Cooper AI.
+                  other information you choose to include in your resume and/or application for employment at Cooper.
                 </li>
                 <li>
                   <strong>Device data</strong>, such as your computer's or mobile device's operating system type and
@@ -330,7 +330,7 @@ export default function PrivacyPage() {
                 please contact us at:
                 <br />
                 <br />
-                Cooper AI, Inc.
+                Cooper, Inc.
                 <br />
                 Email: support@askcooper.ai
                 <br />
@@ -346,9 +346,9 @@ export default function PrivacyPage() {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
               <CooperLogo className="h-5 w-5" />
-              <span className="font-semibold text-sm">Cooper AI</span>
+              <span className="font-semibold text-sm">Cooper</span>
             </div>
-            <p className="text-muted-foreground text-xs">© 2025 Cooper AI</p>
+            <p className="text-muted-foreground text-xs">© 2025 Cooper</p>
             <div className="flex gap-6 text-muted-foreground text-xs">
               <a href="/privacy" className="hover:text-foreground">
                 Privacy

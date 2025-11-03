@@ -81,8 +81,8 @@ export function WaitlistForm({ variant = "default" }: WaitlistFormProps) {
         <div className="mb-3 inline-flex rounded-full bg-green-500/10 p-2">
           <CheckCircle className="h-5 w-5 text-green-500" />
         </div>
-        <h3 className="mb-1 font-semibold">You're on the list!</h3>
-        <p className="text-muted-foreground text-sm">We'll notify you when we launch.</p>
+        <h3 className="mb-1 font-semibold">Request received!</h3>
+        <p className="text-muted-foreground text-sm">We'll be in touch soon to schedule your demo.</p>
       </div>
     )
   }
@@ -103,10 +103,10 @@ export function WaitlistForm({ variant = "default" }: WaitlistFormProps) {
           {status === "loading" ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Joining...
+              Submitting...
             </>
           ) : (
-            "Join Waitlist"
+            "Request Demo"
           )}
         </Button>
       </form>
@@ -203,14 +203,20 @@ export function WaitlistForm({ variant = "default" }: WaitlistFormProps) {
         {status === "loading" ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Joining...
+            Submitting...
           </>
         ) : (
-          "Join Waitlist"
+          "Request Demo"
         )}
       </Button>
 
-      <p className="text-muted-foreground text-xs text-center">By joining, you agree to receive updates.</p>
+      <p className="text-muted-foreground text-xs text-center">
+        See how we collect, use and protect your information in our{" "}
+        <a href="/privacy" className="underline hover:text-foreground">
+          Privacy Policy
+        </a>
+        .
+      </p>
     </form>
   )
 }

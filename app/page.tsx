@@ -7,7 +7,6 @@ import {
   Shield,
   Workflow,
   Brain,
-  Headphones,
   Building2,
   Network,
   Store,
@@ -59,9 +58,9 @@ export default function LandingPage() {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <CooperLogo className="h-6 w-6 text-primary md:h-7 md:w-7" />
-            <span className="font-semibold text-base md:text-lg">Cooper AI</span>
+            <span className="font-semibold text-base md:text-2xl">Cooper</span>
           </div>
           <Button size="sm" asChild className="md:h-10">
             <a
@@ -119,7 +118,7 @@ export default function LandingPage() {
                   <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
                   <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
                 </div>
-                <div className="text-muted-foreground text-xs">Cooper AI</div>
+                <div className="text-muted-foreground text-xs">Cooper</div>
               </div>
 
               <div className="flex">
@@ -127,7 +126,7 @@ export default function LandingPage() {
                   <div className="flex flex-col gap-0.5 p-3">
                     <div className="mb-2 flex items-center px-2.5 py-2 gap-0.5">
                       <CooperLogo className="h-5 w-5" />
-                      <span className="font-semibold text-sm">Cooper AI</span>
+                      <span className="font-semibold text-base">Cooper</span>
                     </div>
                     <div className="space-y-0.5 text-xs">
                       <div className="rounded-md bg-background px-3 py-2 font-medium">Assistant</div>
@@ -270,19 +269,19 @@ built for insurance professionals.
                 </div>
                 <h3 className="font-semibold text-background text-xl">Insurance-Specific AI Models </h3>
                 <p className="text-background/80 leading-relaxed">
-                  High-performing custom models built for complex insurance work. Trained on ACORD forms, policies, and
-                  industry-specific documentation.
+                  High-performing custom models built for complex insurance work. Cooper is trained to understand forms,
+                  policies, and insurance documentation.
                 </p>
               </div>
 
               <div className="flex flex-col gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-background/20">
-                  <Headphones className="h-6 w-6 text-background" />
+                  <Layers className="h-6 w-6 text-background" />
                 </div>
-                <h3 className="font-semibold text-background text-xl">24/7 Customer Support</h3>
+                <h3 className="font-semibold text-background text-xl">No Rip and Replace</h3>
                 <p className="text-background/80 leading-relaxed">
-                  White glove support to resolve issues and maximize your Cooper experience. Dedicated assistance for
-                  agents, brokers, and carriers.
+                  Cooper works with your existing systems - both homegrown or purchased. Seamlessly integrate without
+                  disrupting your current workflows.
                 </p>
               </div>
             </div>
@@ -871,11 +870,11 @@ built for insurance professionals.
       <footer className="border-t py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-0.5">
               <CooperLogo className="h-5 w-5" />
-              <span className="font-semibold text-sm">Cooper AI</span>
+              <span className="font-semibold text-lg">Cooper</span>
             </div>
-            <p className="text-muted-foreground text-xs">© 2025 Cooper AI</p>
+            <p className="text-muted-foreground text-xs">© 2025 Cooper</p>
             <div className="flex gap-6 text-muted-foreground text-xs">
               <Link href="/privacy" className="hover:text-foreground">
                 Privacy
