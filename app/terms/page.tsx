@@ -15,7 +15,7 @@ export default function TermsPage() {
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <Link href="/" className="flex items-center gap-2">
             <CooperLogo className="h-7 w-7" />
-            <span className="font-semibold text-lg">Cooper AI</span>
+            <span className="font-semibold text-lg">Cooper</span>
           </Link>
         </div>
       </header>
@@ -29,7 +29,7 @@ export default function TermsPage() {
             <h2 className="mb-4 font-semibold text-xl">01. Acceptance of Terms</h2>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                Cooper AI, Inc. ("Cooper AI" or "we") provides our Service (as defined below) to you through our web
+                Cooper, Inc. ("Cooper" or "we") provides our Service (as defined below) to you through our web
                 site and related technologies (the Site, including any updated or new features, functionality and
                 technology, the "Service"). All access and use of the Service is subject to the terms and conditions
                 contained in these Terms of Service (as amended from time to time, these "Terms of Service"). By
@@ -43,7 +43,7 @@ export default function TermsPage() {
                 Service, you must not accept these Terms of Service and may not use the Service.
               </p>
               <p>
-                Cooper AI may change these Terms of Service from time to time by providing thirty (30) days prior notice
+                Cooper may change these Terms of Service from time to time by providing thirty (30) days prior notice
                 either by emailing the email address associated with your account or by posting a notice on the Site.
                 You can review the most current version of these Terms of Service at any time. The revised terms and
                 conditions will become effective thirty (30) days after we post or send you notice of such changes, and
@@ -64,12 +64,12 @@ export default function TermsPage() {
                 liable for any User's breach of any such terms or conditions. You agree to (a) immediately notify Cooper
                 AI of any unauthorized use of your or a User's password or account or any other breach of security, and
                 (b) ensure that you and each User exits from your or their account at the end of each session when
-                accessing the Service. Cooper AI will not be liable for any loss or damage arising from your or a User's
-                failure to comply with this section. Cooper AI reserves the right to access your account in order to
+                accessing the Service. Cooper will not be liable for any loss or damage arising from your or a User's
+                failure to comply with this section. Cooper reserves the right to access your account in order to
                 respond to your requests for technical support.
               </p>
               <p>
-                At Cooper AI, we respect the privacy of our users. For more information please see our Privacy Policy.
+                At Cooper, we respect the privacy of our users. For more information please see our Privacy Policy.
                 By using the Service, you consent to our collection, use and disclosure of personal information and
                 other data as outlined therein.
               </p>
@@ -80,15 +80,15 @@ export default function TermsPage() {
             <h2 className="mb-4 font-semibold text-xl">02. Description of Service</h2>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                The "Service" includes (a) the Site, (b) Cooper AI's insurance automation platform and related services,
+                The "Service" includes (a) the Site, (b) Cooper's insurance automation platform and related services,
                 including, but not limited to AI-powered document processing, workflow automation, underwriting
                 assistance, policy analysis, and related technologies and (c) all software, data, reports, text, images,
                 and content (collectively referred to as the "Content") made available through any of the foregoing. For
                 clarity, any insurance products or policies are subject to a separate agreement and are expressly not a
                 part of the Service or subject to these Terms of Service. Any new features added to or augmenting the
-                Service are also subject to these Terms of Service. Cooper AI reserves the right to modify or
+                Service are also subject to these Terms of Service. Cooper reserves the right to modify or
                 discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice. You
-                agree that Cooper AI will not be liable to you or to any third party for any modification, suspension or
+                agree that Cooper will not be liable to you or to any third party for any modification, suspension or
                 discontinuance of the Service.
               </p>
             </div>
@@ -101,14 +101,14 @@ export default function TermsPage() {
                 You agree to use the Service only for purposes that are permitted by (a) these Terms of Service and (b)
                 any applicable law, regulation or generally accepted practices or guidelines in the relevant
                 jurisdictions. You agree not to access (or attempt to access) the Service by any means other than
-                through the interface that is provided by Cooper AI. You shall not use the Service in any manner that
+                through the interface that is provided by Cooper. You shall not use the Service in any manner that
                 could damage, disable, overburden, or impair the Service or interfere with any other party's use and
                 enjoyment of the Service.
               </p>
               <p>
-                You agree that you are solely responsible for (and that Cooper AI has no responsibility to you or to any
+                You agree that you are solely responsible for (and that Cooper has no responsibility to you or to any
                 third party for) any breach of your obligations under these Terms of Service and for the consequences
-                (including any loss or damage which Cooper AI may suffer) of any such breach.
+                (including any loss or damage which Cooper may suffer) of any such breach.
               </p>
             </div>
           </section>
@@ -117,15 +117,15 @@ export default function TermsPage() {
             <h2 className="mb-4 font-semibold text-xl">04. Intellectual Property Rights</h2>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                You acknowledge and agree that Cooper AI (or Cooper AI's licensors) own all legal right, title and
+                You acknowledge and agree that Cooper (or Cooper's licensors) own all legal right, title and
                 interest in and to the Service, including any intellectual property rights which subsist in the Service
                 (whether those rights happen to be registered or not, and wherever in the world those rights may exist).
                 You further acknowledge that the Service may contain information which is designated confidential by
-                Cooper AI and that you shall not disclose such information without Cooper AI's prior written consent.
+                Cooper and that you shall not disclose such information without Cooper's prior written consent.
               </p>
               <p>
-                Unless you have agreed otherwise in writing with Cooper AI, nothing in these Terms of Service gives you
-                a right to use any of Cooper AI's trade names, trademarks, service marks, logos, domain names, and other
+                Unless you have agreed otherwise in writing with Cooper, nothing in these Terms of Service gives you
+                a right to use any of Cooper's trade names, trademarks, service marks, logos, domain names, and other
                 distinctive brand features.
               </p>
             </div>
@@ -136,8 +136,8 @@ export default function TermsPage() {
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
                 You retain all rights to any data, documents, or information you submit to the Service ("Customer
-                Data"). Cooper AI will use Customer Data only to provide the Service to you and will not share Customer
-                Data with third parties except as necessary to provide the Service or as required by law. Cooper AI
+                Data"). Cooper will use Customer Data only to provide the Service to you and will not share Customer
+                Data with third parties except as necessary to provide the Service or as required by law. Cooper
                 implements appropriate technical and organizational measures to protect Customer Data against
                 unauthorized or unlawful processing and against accidental loss, destruction, or damage.
               </p>
@@ -171,7 +171,7 @@ export default function TermsPage() {
             <h2 className="mb-4 font-semibold text-xl">07. Indemnification</h2>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                You agree to defend, indemnify and hold harmless Cooper AI and its officers, directors, employees,
+                You agree to defend, indemnify and hold harmless Cooper and its officers, directors, employees,
                 consultants, affiliates, subsidiaries and agents from and against any and all claims, liabilities,
                 damages, losses, costs, expenses, fees (including reasonable attorneys' fees and court costs) that such
                 parties may incur as a result of or arising from (a) your (or anyone using your account's) violation of
@@ -186,16 +186,16 @@ export default function TermsPage() {
             <h2 className="mb-4 font-semibold text-xl">08. Termination</h2>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                These Terms of Service will continue to apply until terminated by either you or Cooper AI as set forth
-                below. If you want to terminate your agreement with Cooper AI, you may do so by (a) notifying Cooper AI
+                These Terms of Service will continue to apply until terminated by either you or Cooper as set forth
+                below. If you want to terminate your agreement with Cooper, you may do so by (a) notifying Cooper
                 at any time and (b) closing your account. Your notice should be sent to support@askcooper.ai.
               </p>
               <p>
-                Cooper AI may at any time terminate these Terms of Service with you if: (a) you have breached any
+                Cooper may at any time terminate these Terms of Service with you if: (a) you have breached any
                 provision of these Terms of Service (or have acted in a manner that clearly shows you do not intend to,
-                or are unable to, comply with these Terms of Service); (b) Cooper AI is required to do so by law; (c)
-                the provision of the Service to you is, in Cooper AI's opinion, no longer commercially viable; or (d)
-                Cooper AI has elected to discontinue the Service (or any part thereof).
+                or are unable to, comply with these Terms of Service); (b) Cooper is required to do so by law; (c)
+                the provision of the Service to you is, in Cooper's opinion, no longer commercially viable; or (d)
+                Cooper has elected to discontinue the Service (or any part thereof).
               </p>
             </div>
           </section>
@@ -204,15 +204,15 @@ export default function TermsPage() {
             <h2 className="mb-4 font-semibold text-xl">09. General Legal Terms</h2>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                These Terms of Service constitute the whole legal agreement between you and Cooper AI and govern your
-                use of the Service and completely replace any prior agreements between you and Cooper AI in relation to
+                These Terms of Service constitute the whole legal agreement between you and Cooper and govern your
+                use of the Service and completely replace any prior agreements between you and Cooper in relation to
                 the Service.
               </p>
               <p>
-                You agree that if Cooper AI does not exercise or enforce any legal right or remedy which is contained in
-                these Terms of Service (or which Cooper AI has the benefit of under any applicable law), this will not
-                be taken to be a formal waiver of Cooper AI's rights and that those rights or remedies will still be
-                available to Cooper AI.
+                You agree that if Cooper does not exercise or enforce any legal right or remedy which is contained in
+                these Terms of Service (or which Cooper has the benefit of under any applicable law), this will not
+                be taken to be a formal waiver of Cooper's rights and that those rights or remedies will still be
+                available to Cooper.
               </p>
               <p>
                 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of these
@@ -221,9 +221,9 @@ export default function TermsPage() {
                 continue to be valid and enforceable.
               </p>
               <p>
-                These Terms of Service, and your relationship with Cooper AI under these Terms of Service, shall be
+                These Terms of Service, and your relationship with Cooper under these Terms of Service, shall be
                 governed by the laws of the State of Delaware without regard to its conflict of laws provisions. You and
-                Cooper AI agree to submit to the exclusive jurisdiction of the courts located within the State of
+                Cooper agree to submit to the exclusive jurisdiction of the courts located within the State of
                 Delaware to resolve any legal matter arising from these Terms of Service.
               </p>
             </div>
@@ -236,7 +236,7 @@ export default function TermsPage() {
                 If you have any questions about these Terms of Service, please contact us at:
                 <br />
                 <br />
-                Cooper AI, Inc.
+                Cooper, Inc.
                 <br />
                 Email: support@askcooper.ai
                 <br />
@@ -252,9 +252,9 @@ export default function TermsPage() {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
               <CooperLogo className="h-5 w-5" />
-              <span className="font-semibold text-sm">Cooper AI</span>
+              <span className="font-semibold text-sm">Cooper</span>
             </div>
-            <p className="text-muted-foreground text-xs">© 2025 Cooper AI</p>
+            <p className="text-muted-foreground text-xs">© 2025 Cooper</p>
             <div className="flex gap-6 text-muted-foreground text-xs">
               <Link href="/privacy" className="hover:text-foreground">
                 Privacy
