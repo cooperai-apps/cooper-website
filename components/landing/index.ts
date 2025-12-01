@@ -1,0 +1,13 @@
+// Landing page components
+export { Header } from "./header"
+export { HeroSection } from "./hero-section"
+export { ProductMockup } from "./product-mockup"
+export { SocialProofSection } from "./social-proof-section"
+export { ValueSection } from "./value-section"
+export { FeatureSection } from "./feature-section"
+export { IncomingDocumentsMockup, PolicyComparisonMockup, ComplianceCheckMockup } from "./feature-mockups"
+export { ProfessionalsSection } from "./professionals-section"
+export { TestimonialSection } from "./testimonial-section"
+export { SecuritySection } from "./security-section"
+export { DemoSection } from "./demo-section"
+export { Footer } from "./footer"
