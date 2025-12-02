@@ -9,6 +9,8 @@ export async function joinWaitlist(data: {
   company: string
   phone: string
   organizationType: string
+  preferredDate?: string | null
+  preferredTime?: string | null
 }) {
   try {
     // Check if environment variables are set
@@ -42,6 +44,8 @@ export async function joinWaitlist(data: {
       company: data.company.trim(),
       phone: data.phone.trim() || null,
       organization_type: data.organizationType.trim(),
+      preferred_date: data.preferredDate || null,
+      preferred_time: data.preferredTime || null,
     })
 
     if (error) {

@@ -3,16 +3,20 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Assistant, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
-
-// Initialize fonts
-const _geist = V0_Font_Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+import { Assistant, Source_Serif_4 } from 'next/font/google'
 
 const assistant = Assistant({
   subsets: ["latin"],
   variable: "--font-assistant",
+  display: "swap",
+})
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
     "Cooper streamlines submissions, automates underwriting, and accelerates policy management for insurance professionals.",
   generator: 'v0.app',
   icons: {
-    icon: '/cooper-flower-white.webp',
+    icon: '/cooper-logo.png',
   }
 }
 
@@ -32,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${assistant.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${assistant.variable} ${sourceSerif.variable} font-sans antialiased`}>{children}</body>
     </html>
   )
 }

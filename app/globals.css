@@ -125,6 +125,9 @@
     @apply bg-background text-foreground;
     font-family: var(--font-assistant), ui-sans-serif, system-ui, sans-serif;
   }
+  .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  }
 }
 
 @keyframes scroll-slow {
