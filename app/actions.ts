@@ -1,9 +1,5 @@
-// "use server"
+"use server"
 
-// Commented out for static export (Cloudflare demo deployment)
-// Uncomment "use server" above and the code below for production Vercel deployment
-
-/*
 import { createServerClient } from "@supabase/ssr"
 import { cookies } from "next/headers"
 
@@ -82,4 +78,3 @@ export async function joinWaitlist(data: {
     }
   }
 }
-*/

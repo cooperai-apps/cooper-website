@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-// import { joinWaitlist } from "@/app/actions" // Uncomment for production
+import { joinWaitlist } from "@/app/actions"
 import { CheckCircle, Loader2, AlertCircle } from "lucide-react"
 
 interface WaitlistFormProps {
@@ -177,23 +177,6 @@ export function WaitlistForm({ variant = "default" }: WaitlistFormProps) {
 
     setStatus("loading")
 
-    // === DEMO MODE (Cloudflare static export) ===
-    // Simulate success without backend call
-    await new Promise(resolve => setTimeout(resolve, 500))
-    setStatus("success")
-    setEmail("")
-    setName("")
-    setCompany("")
-    setPhone("")
-    setOrganizationType("")
-    setPreferredDate("")
-    setPreferredTime("")
-    setFieldErrors({})
-    setTouched({})
-
-    // === PRODUCTION MODE (Vercel) ===
-    // Uncomment below and comment out demo mode above for production
-    /*
     try {
       const result = await joinWaitlist({
         email,
@@ -224,7 +207,6 @@ export function WaitlistForm({ variant = "default" }: WaitlistFormProps) {
       setStatus("error")
       setErrorMessage("Something went wrong. Please try again.")
     }
-    */
   }
 
   const FieldErrorMessage = ({ error }: { error?: string }) => {
