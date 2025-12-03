@@ -1,65 +1,57 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FOOTER_NAV } from "@/lib/landing-data"
+import { Mail, Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-foreground py-12 md:py-16 text-background">
+    <footer className="bg-foreground py-6 text-background">
       <div className="container mx-auto px-4">
-        <div className="grid gap-8 md:grid-cols-4 mb-12">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-1.5 mb-2">
-              <Image src="/cooper-flower-white.webp" alt="Cooper" width={20} height={20} />
-              <span className="font-bold">Cooper</span>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Left: Brand + Copyright + Legal */}
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
+            <div className="flex items-center gap-1.5">
+              <Image src="/cooper-flower-white.webp" alt="Cooper" width={18} height={18} />
+              <span className="font-semibold text-sm">Cooper</span>
             </div>
-            <p className="text-sm text-background/60">San Francisco, CA</p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 className="font-semibold mb-4">Navigation</h3>
-            <div className="space-y-2 text-sm">
-              {FOOTER_NAV.navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block text-background/60 hover:text-background transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <div className="space-y-2 text-sm text-background/60">
-              <p>contact@askcooper.ai</p>
+            <span className="hidden md:block text-background/30">|</span>
+            <div className="flex items-center gap-3 text-xs text-background/50">
+              <span>© 2025</span>
+              <span className="text-background/30">·</span>
+              <Link
+                href="/privacy"
+                className="hover:text-background/80 transition-colors"
+              >
+                Privacy
+              </Link>
+              <span className="text-background/30">·</span>
+              <Link
+                href="/terms"
+                className="hover:text-background/80 transition-colors"
+              >
+                Terms
+              </Link>
             </div>
           </div>
 
-          {/* Social */}
-          <div>
-            <h3 className="font-semibold mb-4">Social Media</h3>
-            <div className="space-y-2 text-sm">
-              {FOOTER_NAV.social.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-background/60 hover:text-background transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
+          {/* Right: Social Icons */}
+          <div className="flex items-center gap-3">
+            <a
+              href="mailto:contact@askcooper.ai"
+              className="text-background/50 hover:text-background transition-colors"
+              aria-label="Email us"
+            >
+              <Mail className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/ask-cooper"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-background/50 hover:text-background transition-colors"
+              aria-label="Follow us on LinkedIn"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
           </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="border-t border-background/10 pt-8">
-          <p className="text-sm text-background/60">© Copyright 2025. All rights reserved.</p>
         </div>
       </div>
     </footer>
