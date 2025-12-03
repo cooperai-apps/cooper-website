@@ -43,7 +43,7 @@ export function Footer() {
               <Mail className="h-4 w-4" />
             </a>
             <a
-              href="https://www.linkedin.com/company/askcooper"
+              href="https://www.linkedin.com/company/ask-cooper"
               target="_blank"
               rel="noopener noreferrer"
               className="text-background/50 hover:text-background transition-colors"
