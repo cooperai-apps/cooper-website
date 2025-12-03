@@ -148,18 +148,6 @@ export const TESTIMONIAL = {
   image: "/rushil-goel.png",
 } as const
 
-// Footer navigation
-export const FOOTER_NAV = {
-  navigation: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-  ],
-  social: [
-    { label: "LinkedIn", href: "#" },
-    { label: "Twitter", href: "#" },
-  ],
-} as const
-
 // Sidebar navigation items for product mockup
 export const SIDEBAR_NAV_ITEMS = [
   { label: "Home", active: true, hasChevron: false },
