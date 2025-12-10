@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Cooper streamlines submissions, automates underwriting, and accelerates policy management for insurance professionals.",
   generator: 'v0.app',
   icons: {
-    icon: '/cooper-logo.png',
+    icon: '/favicon.png',
   }
 }
 
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${assistant.variable} ${sourceSerif.variable} font-sans antialiased`}>{children}</body>
     </html>
   )

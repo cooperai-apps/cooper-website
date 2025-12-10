@@ -1,7 +1,8 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PROFESSIONALS } from "@/lib/landing-data"
-import { scrollToSection } from "@/lib/scroll"
+
+const CALENDLY_URL = "https://calendly.com/karly-askcooper/30min"
 
 interface ProfessionalCardProps {
   title: string
@@ -27,8 +28,6 @@ function ProfessionalCard({ title, description, features }: ProfessionalCardProp
 }
 
 function CTACard() {
-  const handleDemoClick = (e: React.MouseEvent) => scrollToSection(e, "demo")
-
   return (
     <div className="rounded-xl border bg-foreground p-6 text-background flex flex-col justify-between">
       <div>
@@ -38,7 +37,7 @@ function CTACard() {
         </p>
       </div>
       <Button asChild variant="secondary" className="w-full rounded-full">
-        <a href="#demo" onClick={handleDemoClick}>
+        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
           Request a Demo
           <ArrowRight className="ml-2 h-4 w-4" />
         </a>

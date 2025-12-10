@@ -145,7 +145,7 @@ export const TESTIMONIAL = {
   quote: "Cooper transformed how we process submissions. What took hours now takes minutes. It's like having an insurance expert available 24/7. Cooper has become essential to scaling fast and staying competitive.",
   author: "Rushil Goel",
   title: "CEO, Nirvana Insurance",
-  image: "/rushil-goel.png",
+  image: "/rushil-goel.webp",
 } as const
 
 // Sidebar navigation items for product mockup

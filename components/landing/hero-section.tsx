@@ -1,10 +1,10 @@
 import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ProductMockup } from "./product-mockup"
-import { scrollToSection } from "@/lib/scroll"
+
+const CALENDLY_URL = "https://calendly.com/karly-askcooper/30min"
 
 export function HeroSection() {
-  const handleDemoClick = (e: React.MouseEvent) => scrollToSection(e, "demo")
 
   return (
     <section className="py-16 md:py-24">
@@ -32,7 +32,7 @@ export function HeroSection() {
             asChild
             className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base"
           >
-            <a href="#demo" onClick={handleDemoClick}>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               Request a Demo
               <ArrowRight className="h-4 w-4" />
             </a>

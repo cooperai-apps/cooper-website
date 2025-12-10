@@ -15,6 +15,7 @@ export function TestimonialSection() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
               <div className="flex flex-col justify-center bg-foreground p-8 md:p-12 text-background">

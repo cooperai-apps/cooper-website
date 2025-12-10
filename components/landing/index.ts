@@ -9,5 +9,4 @@ export { IncomingDocumentsMockup, PolicyComparisonMockup, ComplianceCheckMockup 
 export { ProfessionalsSection } from "./professionals-section"
 export { TestimonialSection } from "./testimonial-section"
 export { SecuritySection } from "./security-section"
-export { DemoSection } from "./demo-section"
 export { Footer } from "./footer"
