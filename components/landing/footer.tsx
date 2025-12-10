@@ -10,7 +10,7 @@ export function Footer() {
           {/* Left: Brand + Copyright + Legal */}
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
             <div className="flex items-center gap-1.5">
-              <Image src="/cooper-flower-white.webp" alt="Cooper" width={18} height={18} />
+              <Image src="/cooper-flower-white.webp" alt="Cooper" width={18} height={18} loading="lazy" />
               <span className="font-semibold text-sm">Cooper</span>
             </div>
             <span className="hidden md:block text-background/30">|</span>

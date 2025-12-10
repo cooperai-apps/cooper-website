@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useState, useCallback, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { CooperLogo } from "@/components/cooper-logo"
-import { scrollToSection } from "@/lib/scroll"
+
+const CALENDLY_URL = "https://calendly.com/karly-askcooper/30min"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -23,10 +24,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleDemoClick = useCallback((e: React.MouseEvent) => {
-    scrollToSection(e, "demo")
-  }, [])
-
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -44,7 +41,7 @@ export function Header() {
             asChild
             className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-5"
           >
-            <a href="#demo" onClick={handleDemoClick}>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               Request a Demo
             </a>
           </Button>

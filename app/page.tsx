@@ -13,7 +13,6 @@ import {
   ProfessionalsSection,
   TestimonialSection,
   SecuritySection,
-  DemoSection,
   Footer,
 } from "@/components/landing"
 import { FEATURES } from "@/lib/landing-data"
@@ -78,8 +77,6 @@ export default function LandingPage() {
         <TestimonialSection />
 
         <SecuritySection />
-
-        <DemoSection />
       </main>
 
       <Footer />

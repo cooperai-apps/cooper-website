@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Server Actions require Node.js runtime (no static export)
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig
