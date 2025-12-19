@@ -7,9 +7,12 @@ import { POPULAR_WORKFLOWS, WORKFLOW_CATEGORIES } from "@/lib/landing-data"
 
 // Example prompts for typing animation
 const EXAMPLE_PROMPTS = [
-  "Extract policy limits from this quote...",
-  "Compare these two submissions...",
-  "Check appetite for this risk...",
+  "Ask Cooper anything...",
+  "What are the policy limits and deductibles in this quote?",
+  "Compare coverage terms between these two submissions...",
+  "Does this risk meet our underwriting guidelines?",
+  "Extract all driver information from the MVR",
+  "What's missing from this submission?",
 ]
 
 // Sidebar navigation labels
@@ -516,7 +519,7 @@ export function ProductMockup() {
               <div className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2.5 md:px-4 md:py-3 transition-all duration-300 cursor-text hover:border-foreground/30 hover:shadow-sm group-hover:ring-2 group-hover:ring-foreground/5">
                 <CooperLogo className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-xs md:text-sm text-muted-foreground flex-1">
-                  {typedText || "Ask Cooper anything..."}
+                  {typedText || ""}
                   <span className="inline-block w-0.5 h-4 bg-foreground/50 ml-0.5 animate-pulse align-middle" />
                 </span>
                 <kbd className="hidden md:inline-flex h-5 items-center gap-1 rounded border bg-muted px-1.5 text-[10px] font-medium text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
