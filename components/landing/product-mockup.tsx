@@ -1,6 +1,23 @@
+"use client"
+
 import type React from "react"
+import { useState, useEffect, useCallback } from "react"
 import { CooperLogo } from "@/components/cooper-logo"
 import { POPULAR_WORKFLOWS, WORKFLOW_CATEGORIES } from "@/lib/landing-data"
+
+// Example prompts for typing animation
+const EXAMPLE_PROMPTS = [
+  "Ask Cooper anything...",
+  "What are the policy limits and deductibles in this quote?",
+  "Compare coverage terms between these two submissions...",
+  "Does this risk meet our underwriting guidelines?",
+  "Extract all driver information from the MVR",
+  "What's missing from this submission?",
+]
+
+// Sidebar navigation labels
+const SIDEBAR_LABELS = ["Home", "Workflows", "Vault", "Library", "History"] as const
+type SidebarLabel = typeof SIDEBAR_LABELS[number]
 
 // Icon components for the mockup
 function HomeIcon() {
@@ -125,22 +142,27 @@ function SidebarItem({
   icon: Icon,
   label,
   active,
-  hasChevron
+  hasChevron,
+  onClick
 }: {
   icon: () => React.ReactNode
   label: string
   active: boolean
   hasChevron: boolean
+  onClick?: () => void
 }) {
   return (
-    <div className={`rounded-lg px-3 py-2 flex items-center ${active ? "bg-foreground/5 font-medium" : "text-muted-foreground"} ${hasChevron ? "justify-between" : "gap-2"}`}>
+    <div
+      onClick={onClick}
+      className={`rounded-lg px-3 py-2 flex items-center cursor-pointer transition-all duration-200 ${active ? "bg-foreground/10 font-medium scale-[1.02]" : "text-muted-foreground hover:bg-foreground/5 hover:scale-[1.01]"} ${hasChevron ? "justify-between" : "gap-2"}`}
+    >
       {hasChevron ? (
         <>
           <span className="flex items-center gap-2">
             <Icon />
             {label}
           </span>
-          <ChevronRightIcon />
+          <ChevronRightIcon className={`h-3 w-3 transition-transform duration-200 ${active ? "translate-x-0.5" : ""}`} />
         </>
       ) : (
         <>
@@ -152,51 +174,108 @@ function SidebarItem({
   )
 }
 
-function WorkflowCard({ title, description, steps, popular }: {
+function LoadingSpinner() {
+  return (
+    <svg className="h-3 w-3 animate-spin" viewBox="0 0 24 24" fill="none">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+    </svg>
+  )
+}
+
+function CheckmarkIcon() {
+  return (
+    <svg className="h-3 w-3 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  )
+}
+
+function WorkflowCard({ title, description, steps, popular, isActive, isRunning, progress, onClick }: {
   title: string
   description: string
   steps: number
   popular: boolean
+  isActive?: boolean
+  isRunning?: boolean
+  progress?: number
+  onClick?: () => void
 }) {
   const Icon = WORKFLOW_ICONS[title] || DocumentIcon
+  const isComplete = progress === 100
 
   return (
-    <div className="rounded-xl border bg-background p-4 hover:border-foreground/30 transition-colors cursor-pointer">
+    <div
+      onClick={onClick}
+      className={`rounded-xl border bg-background p-4 transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${isActive ? "border-foreground/40 shadow-lg ring-2 ring-foreground/10" : "hover:border-foreground/30 hover:shadow-md"} ${isRunning ? "border-blue-400/50 shadow-blue-100" : ""} ${isComplete ? "border-green-400/50 shadow-green-100" : ""}`}
+    >
       <div className="flex items-start justify-between mb-2">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted">
+        <div className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors duration-300 ${isComplete ? "bg-green-100" : isRunning ? "bg-blue-100" : "bg-muted"}`}>
           <Icon />
         </div>
-        {popular && (
+        {popular && !isRunning && !isComplete && (
           <span className="text-[10px] font-medium bg-foreground/5 px-2 py-0.5 rounded">Popular</span>
+        )}
+        {isRunning && !isComplete && (
+          <span className="text-[10px] font-medium bg-blue-100 text-blue-700 px-2 py-0.5 rounded flex items-center gap-1">
+            <LoadingSpinner /> Running
+          </span>
+        )}
+        {isComplete && (
+          <span className="text-[10px] font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded flex items-center gap-1">
+            <CheckmarkIcon /> Done
+          </span>
         )}
       </div>
       <div className="font-medium text-sm mb-1">{title}</div>
       <div className="text-xs text-muted-foreground mb-3 line-clamp-2">{description}</div>
+
+      {/* Progress bar when running */}
+      {isRunning && progress !== undefined && (
+        <div className="mb-3">
+          <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+            <div
+              className="h-full bg-blue-500 rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <div className="text-[10px] text-blue-600 mt-1">Step {Math.ceil((progress / 100) * steps)} of {steps}</div>
+        </div>
+      )}
+
       <div className="flex items-center justify-between text-xs text-muted-foreground">
         <span>{steps} steps</span>
-        <span className="flex items-center gap-1 font-medium text-foreground">
-          Start <ChevronRightIcon />
+        <span className={`flex items-center gap-1 font-medium transition-colors ${isComplete ? "text-green-600" : "text-foreground"}`}>
+          {isComplete ? "View Results" : "Start"} <ChevronRightIcon />
         </span>
       </div>
     </div>
   )
 }
 
-function CategoryItem({ title, description, steps }: {
+function CategoryItem({ title, description, steps, isSelected, onClick }: {
   title: string
   description: string
   steps: number
+  isSelected?: boolean
+  onClick?: () => void
 }) {
   const Icon = CATEGORY_ICONS[title] || DocumentIcon
 
   return (
-    <div className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-background cursor-pointer">
-      <Icon />
+    <div
+      onClick={onClick}
+      className={`flex items-center gap-3 rounded-lg px-3 py-2 cursor-pointer transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] ${isSelected ? "bg-foreground/5 shadow-sm" : "hover:bg-foreground/5"}`}
+    >
+      <div className={`transition-transform duration-200 ${isSelected ? "scale-110" : ""}`}>
+        <Icon />
+      </div>
       <div className="flex-1 min-w-0">
         <div className="text-sm font-medium">{title}</div>
         <div className="text-xs text-muted-foreground truncate">{description}</div>
       </div>
-      <span className="text-xs text-muted-foreground">{steps} steps</span>
+      <span className={`text-xs transition-colors duration-200 ${isSelected ? "text-foreground font-medium" : "text-muted-foreground"}`}>{steps} steps</span>
+      <ChevronRightIcon className={`h-3 w-3 text-muted-foreground transition-all duration-200 ${isSelected ? "translate-x-1 opacity-100" : "opacity-0"}`} />
     </div>
   )
 }
@@ -222,15 +301,139 @@ function WorkflowCardCompact({ title, steps }: { title: string; steps: number })
 export function ProductMockup() {
   const SIDEBAR_ICONS = [HomeIcon, WorkflowsIcon, VaultIcon, LibraryIcon, HistoryIcon]
 
+  // Sidebar active state
+  const [activeSidebar, setActiveSidebar] = useState<SidebarLabel>("Home")
+
+  // Auto-cycling workflow highlight (pauses when user interacts)
+  const [activeWorkflowIndex, setActiveWorkflowIndex] = useState(0)
+  const [isAutoCycling, setIsAutoCycling] = useState(true)
+
+  // Workflow running state
+  const [runningWorkflow, setRunningWorkflow] = useState<number | null>(null)
+  const [workflowProgress, setWorkflowProgress] = useState(0)
+
+  // Category item selection
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+
+  // Typing animation state
+  const [typedText, setTypedText] = useState("")
+  const [promptIndex, setPromptIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  // Window button hover state
+  const [hoveredButton, setHoveredButton] = useState<number | null>(null)
+
+  // Handle workflow card click
+  const handleWorkflowClick = useCallback((index: number) => {
+    setIsAutoCycling(false)
+    setActiveWorkflowIndex(index)
+
+    // If clicking on already running workflow, reset it
+    if (runningWorkflow === index) {
+      setRunningWorkflow(null)
+      setWorkflowProgress(0)
+      return
+    }
+
+    // Start running the workflow
+    setRunningWorkflow(index)
+    setWorkflowProgress(0)
+  }, [runningWorkflow])
+
+  // Handle category item click
+  const handleCategoryClick = useCallback((title: string) => {
+    setSelectedCategory(prev => prev === title ? null : title)
+  }, [])
+
+  // Cycle through workflows every 3 seconds (only if auto-cycling)
+  useEffect(() => {
+    if (!isAutoCycling || runningWorkflow !== null) return
+
+    const interval = setInterval(() => {
+      setActiveWorkflowIndex((prev) => (prev + 1) % POPULAR_WORKFLOWS.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [isAutoCycling, runningWorkflow])
+
+  // Resume auto-cycling after inactivity
+  useEffect(() => {
+    if (isAutoCycling) return
+
+    const timeout = setTimeout(() => {
+      setIsAutoCycling(true)
+    }, 10000) // Resume after 10 seconds of no interaction
+
+    return () => clearTimeout(timeout)
+  }, [isAutoCycling, activeWorkflowIndex])
+
+  // Progress animation for running workflow
+  useEffect(() => {
+    if (runningWorkflow === null) return
+
+    const interval = setInterval(() => {
+      setWorkflowProgress(prev => {
+        if (prev >= 100) {
+          // Keep completed state for 3 seconds, then reset
+          setTimeout(() => {
+            setRunningWorkflow(null)
+            setWorkflowProgress(0)
+            setIsAutoCycling(true)
+          }, 3000)
+          return 100
+        }
+        return prev + Math.random() * 15 + 5 // Random progress increments
+      })
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [runningWorkflow])
+
+  // Typing animation effect
+  useEffect(() => {
+    const currentPrompt = EXAMPLE_PROMPTS[promptIndex]
+    const typingSpeed = 50
+    const deletingSpeed = 30
+    const pauseDuration = 2000
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (typedText.length < currentPrompt.length) {
+          setTypedText(currentPrompt.slice(0, typedText.length + 1))
+        } else {
+          // Pause at end before deleting
+          setTimeout(() => setIsDeleting(true), pauseDuration)
+        }
+      } else {
+        if (typedText.length > 0) {
+          setTypedText(typedText.slice(0, -1))
+        } else {
+          setIsDeleting(false)
+          setPromptIndex((prev) => (prev + 1) % EXAMPLE_PROMPTS.length)
+        }
+      }
+    }, isDeleting ? deletingSpeed : typingSpeed)
+
+    return () => clearTimeout(timeout)
+  }, [typedText, isDeleting, promptIndex])
+
   return (
     <div className="mx-auto mt-12 md:mt-16 max-w-5xl px-4 md:px-0">
       <div className="overflow-hidden rounded-xl border bg-background shadow-2xl">
         {/* Window controls */}
         <div className="flex items-center gap-2 border-b bg-muted/30 px-3 py-2 md:px-4 md:py-3">
           <div className="flex gap-1.5">
-            <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-muted-foreground/20" />
-            <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-muted-foreground/20" />
-            <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-muted-foreground/20" />
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                onMouseEnter={() => setHoveredButton(i)}
+                onMouseLeave={() => setHoveredButton(null)}
+                className={`h-2.5 w-2.5 md:h-3 md:w-3 rounded-full transition-all duration-200 cursor-pointer ${
+                  hoveredButton === i
+                    ? i === 0 ? "bg-red-500 scale-110" : i === 1 ? "bg-yellow-500 scale-110" : "bg-green-500 scale-110"
+                    : "bg-muted-foreground/20"
+                }`}
+              />
+            ))}
           </div>
         </div>
 
@@ -243,13 +446,14 @@ export function ProductMockup() {
                 <span className="font-semibold">Cooper</span>
               </div>
               <div className="space-y-0.5 text-sm">
-                {["Home", "Workflows", "Vault", "Library", "History"].map((label, index) => (
+                {SIDEBAR_LABELS.map((label, index) => (
                   <SidebarItem
                     key={label}
                     icon={SIDEBAR_ICONS[index]}
                     label={label}
-                    active={label === "Home"}
+                    active={label === activeSidebar}
                     hasChevron={["Workflows", "Vault", "History"].includes(label)}
+                    onClick={() => setActiveSidebar(label)}
                   />
                 ))}
               </div>
@@ -269,8 +473,15 @@ export function ProductMockup() {
 
             {/* Popular Workflows - Compact list on mobile, grid on desktop */}
             <div className="hidden md:grid gap-3 md:grid-cols-3 mb-6">
-              {POPULAR_WORKFLOWS.map((workflow) => (
-                <WorkflowCard key={workflow.title} {...workflow} />
+              {POPULAR_WORKFLOWS.map((workflow, index) => (
+                <WorkflowCard
+                  key={workflow.title}
+                  {...workflow}
+                  isActive={index === activeWorkflowIndex}
+                  isRunning={runningWorkflow === index}
+                  progress={runningWorkflow === index ? Math.min(workflowProgress, 100) : undefined}
+                  onClick={() => handleWorkflowClick(index)}
+                />
               ))}
             </div>
 
@@ -287,11 +498,16 @@ export function ProductMockup() {
                 <div key={category.name}>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{category.name}</span>
-                    <span className="text-xs text-muted-foreground">See All →</span>
+                    <span className="text-xs text-muted-foreground hover:text-foreground cursor-pointer transition-colors">See All →</span>
                   </div>
                   <div className="space-y-1">
                     {category.items.map((item) => (
-                      <CategoryItem key={item.title} {...item} />
+                      <CategoryItem
+                        key={item.title}
+                        {...item}
+                        isSelected={selectedCategory === item.title}
+                        onClick={() => handleCategoryClick(item.title)}
+                      />
                     ))}
                   </div>
                 </div>
@@ -299,10 +515,16 @@ export function ProductMockup() {
             </div>
 
             {/* Ask Cooper Input */}
-            <div className="mt-4 md:mt-6 relative">
-              <div className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2.5 md:px-4 md:py-3">
-                <CooperLogo className="h-4 w-4 text-muted-foreground" />
-                <span className="text-xs md:text-sm text-muted-foreground">Ask Cooper anything...</span>
+            <div className="mt-4 md:mt-6 relative group">
+              <div className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2.5 md:px-4 md:py-3 transition-all duration-300 cursor-text hover:border-foreground/30 hover:shadow-sm group-hover:ring-2 group-hover:ring-foreground/5">
+                <CooperLogo className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:scale-110" />
+                <span className="text-xs md:text-sm text-muted-foreground flex-1">
+                  {typedText || ""}
+                  <span className="inline-block w-0.5 h-4 bg-foreground/50 ml-0.5 animate-pulse align-middle" />
+                </span>
+                <kbd className="hidden md:inline-flex h-5 items-center gap-1 rounded border bg-muted px-1.5 text-[10px] font-medium text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  ⌘K
+                </kbd>
               </div>
             </div>
           </div>
